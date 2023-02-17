@@ -1,0 +1,66 @@
+<main class="mt-5 pt-4">
+    <div class="container mt-5">
+        <!--Grid row-->
+        <div class="row" >
+            <!--Grid column-->
+            <div class="col-md-5 mb-4">
+                <img src="./assets/images/{{item.Photo}}" class="img-fluid w-100" alt="" />
+                <!-- <img src= alt="" style="width: 100px;"> -->
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-md-7 mb-4">
+                <!--Content-->
+                <div class="p-4">
+                    <div class="mb-3">
+                        <a href="" class="mr-1">
+                            <span class="badge bg-dark me-1">Category 2</span>
+                        </a>
+                        <a href="" class="mr-1">
+                            <span class="badge bg-info me-1">New</span>
+                        </a>
+                        <a href="" class="mr-1">
+                            <span class="badge bg-success me-1">Bestseller</span>
+                        </a>
+                    </div>
+
+                    <p class="lead">
+                        <span class="me-1 mr-2">
+                            <del>${{item.Price *1.2}}</del>
+                        </span>
+                        <span> ${{item.Price}}</span>
+                    </p>
+
+                    <strong><p style="font-size: 20px;">{{item.Name}}</p></strong>
+
+                    <p>Quantity in stock: {{item.Quantity}}</p>
+
+                    <form class="d-flex justify-content-left">
+                        <button class="btn btn-primary ms-1" type="submit" (click)="addCart(item)">
+                            Add to cart
+                            <i class="fas fa-shopping-cart ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+                <!--Content-->
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+
+        <hr />
+
+        <!--Grid row-->
+        <div class="row d-flex justify-content-center">
+            <!--Grid column-->
+            <div class="col-md-6 text-center">
+                <h4 class="my-4 h4">Additional information</h4>
+
+                <p>Other details of product is here</p>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+</main>

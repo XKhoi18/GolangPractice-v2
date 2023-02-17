@@ -1,0 +1,6 @@
+td, th {
+    text-align: center;
+}
+table button.btn-danger, table button.btn-success, table button.btn-secondary{
+    width: 40px;
+}

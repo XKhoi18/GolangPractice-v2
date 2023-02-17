@@ -1,0 +1,73 @@
+<br><br>
+<div class="container">
+    <!-- <div class="section-header">
+        <h2>Cart Items</h2>
+    </div> -->
+    <div class="products-content">
+        <div class="row justify-content-center">
+            <table style="width: 72%;" class="table-bordered">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Name</th>
+                        <th>Photo</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th style="width: 80px;">Sum</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <!-- {{range .cart}} -->
+                <tbody *ngIf="CartList">
+                    <tr *ngFor="let dataItem of CartList">
+                        <th>{{dataItem.Name}}</th>
+                        <td>
+                            <img src="./assets/images/{{dataItem.Photo}}" alt="">
+                        </td>
+                        <td>${{dataItem.Price}}</td>
+                        <td>
+                            <!-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-danger">
+                                    <input type="radio" (click)="plus(dataItem)"> -
+                                </label>
+                                <label class="btn btn-secondary">
+                                    <input type="radio"> {{dataItem.Quantity}}
+                                </label>
+                                <label class="btn btn-success">
+                                    <input type="radio" (click)="minus(dataItem)"> +
+                                </label>
+                            </div> -->
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-danger" (click)="minus(dataItem)">-</button>
+                                <button type="button" class="btn btn-secondary">{{dataItem.Quantity}}</button>
+                                <button type="button" class="btn btn-success" (click)="plus(dataItem)">+</button>
+                              </div>
+                        </td>
+                        <td>${{dataItem.Price*dataItem.Quantity}}</td>
+                        <td>
+                            <div class="text-center"><button class="btn btn-outline-dark mt-auto"
+                                    (click)="removeCart(dataItem)">Remove</button></div>
+                        </td>
+                    </tr>
+                </tbody>
+                <!-- {{end}} -->
+                <tr>
+                    <th colspan="5" style="text-align: right;">Total</th>
+                    <th>${{sumCart}}</th>
+                </tr>
+            </table>
+            <div style="display: flex; margin: 20px 0px 0px 0px; width: 60%; justify-content: space-between;">
+                <div *ngIf="!CartList?.length || !CartList">
+                    <h4>Your cart is empty. Please select atleast one item.</h4>
+                </div>
+                <div>
+                    <a routerLink="/homepage"><button class="btn btn-outline-dark mt-auto">Continue
+                            Shopping</button></a>
+                </div>
+                <div *ngIf="CartList?.length && CartList">
+                    <a href="/homepage"><button class="btn btn-outline-dark mt-auto" (click)="orderCart()">Buy
+                            Now</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
